@@ -1,0 +1,472 @@
+/* Responsivo 
+
+    960px
+    740px
+*/
+
+
+/* Resetando algumas propriedas padrões do HTML */
+
+body, h1, h2, h3, p, ul {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #252525;
+}
+
+* {
+    box-sizing: border-box; /* definindo que em todo o site quando definir o tamanho de um elemento, por exemplo um link com 200px e nesse link eu adicionar uma borda, um padding esse valor não será somado mais aos 200px do tamanho e sim será incluso nos 200px de tamanho */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    display: flex; /* iniciando design do flexbox, dizendo que os itens filhos serão flex*/
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 739px) {
+    .container {
+        max-width: 300px;
+        flex-direction: column; /* por padrão o conteúdo do flex é em linha, porém está sendo alterado para coluna agora */
+    }
+
+}
+
+/* Finalizando o Reset */
+
+/* Menu */
+
+.menu {
+    background: #252525;
+    padding: 20px 0;
+}
+
+.menu-logo {
+    margin: 0 10px;
+}
+
+.menu-nav {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    /*align-items: center; /* alinha o conteúdo dos items */
+    align-self: center; /* alinha conteúddo do item*/
+    margin: 0 10px;
+}
+
+.menu-nav a {
+    text-decoration: none; /* tirando a decoração em azul de links */
+    color: #fff;
+    font-size: 1.125em; /* 18 px, apenas pegar 18 é dividir pela padrão de tamanho da fonte dos navegadores que é 16 */
+}
+
+.menu-nav ul {
+    float: right;
+    display: flex; /* definindo a ul como um item flex, pois apenas o menu-nav que é filho de container é flex*/
+    list-style: none;
+}
+
+.menu-nav ul li a {
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 739px) {
+   .menu-nav {
+        margin: 0px;
+    }
+
+   .menu-logo {
+       margin: 0px auto 10px auto;  
+   }
+}
+
+/* Fim Menu */
+
+/* Introdução */
+
+.introducao {
+    background: url('../img/bg-intro.jpg') no-repeat center center; /* centralizando para cima e para baixo e para a direita e para esquerda*/
+    background-size: cover; /* sempre irá pegar 100% do tamanho da tela */
+    color: #fff;
+    padding: 140px 0;
+    text-align: center;
+}
+
+.introducao h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+.introducao h1::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 4px;
+    background-color: #fff;
+    margin: 10px auto;
+}
+
+.introducao p {
+    font-size: 1.125em;
+    font-style: italic;
+}
+
+@media only screen and (max-width: 739px) {
+
+    .introducao {
+        padding: 60px 0;
+    }
+}
+
+/* Fim Introdução */
+
+
+/* Sobre */
+
+.sobre {
+    margin: 60px 0;
+}
+
+.sobre h2 {
+    font-size: 2.25em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sobre-cafe {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    margin: 0 10px;
+}
+
+.sobre-cafe img {
+    display: block; /* irá ocupar apenas o espaço da imagem, por padrão nos navegadores é adicionado um tamanho a mais na imagem, por causa da tag img ser inline-block */
+    max-width: 100%; /* colocando imagem responsiva */
+}
+
+.sobre-cafe h3 {
+
+    font-size: 2.25em;
+    line-height: 1em;
+    color: #fff;
+    background-color: #252525;
+    font-weight: normal;
+    font-style: italic;
+    position: relative; /* posição relativa a ele mesmo, porém continua ocupando o espaço onde estava */
+    width: 220px;
+    padding: 8px;
+    top: -20px;
+   
+}
+
+.sobre > p { /* falando sobre com o p que está dentro da classe sobre */
+    max-width: 460px; /* definindo o tamanho máximo para que o conteúdo não fique muito grande */
+    text-align: center;
+    font-size: 1.125em;
+    line-height: 1.4em; /* geralmente por padrão o espaçamento da quebra de linha do texto é em torno de 1.3em 1.4em 1.5.em. 1.6em */
+    font-style: italic;
+    margin: 20px auto;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 980px) {
+  
+}
+
+@media only screen and (max-width: 739px) {
+    .sobre {
+        margin: 40px 0;
+    }
+
+    .sobre-cafe {
+        margin: 0;
+    }
+}
+
+/* Fim Sobre */
+
+/* Produtos */
+
+.cafe {
+
+    background-color: #E7E4D8;
+    
+
+    border-top: 3px solid #D6D3C8;
+    border-bottom: 3px solid #D6D3C8;
+    padding: 60px 0;
+}
+
+
+.cafe-tipos {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    margin: 0 10px;
+}
+
+.cafe-tipos h2 {
+    font-size: 2.25em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cafe-tipos h2::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: currentColor; /* pegando a cor que está como padrão */
+    border-radius: 50%; /* se a borda-radius for 50% do tamanho total da largura e altura é criado uma figura redonda */
+
+    border: 5px solid #E7E4D8;
+    box-shadow: 0 0 0 5px currentColor; /* definindo que terá uma sombra com o tamanho de 10px e informando que irá pegar a color que está definida por padrão */
+    margin: 0 auto 20px auto;
+}
+
+h2.cafe-paulista { /* adicionado junto com o before apenas os círculos irão pegar a cor, agora sem o before o texto também irá pegar essa cor */
+    color: #492901;
+}
+
+h2.cafe-carioca {
+    color: #C17139;
+}
+
+h2.cafe-mineiro {
+    color: #D7A54D;
+}
+
+.cafe-tipos p {
+    font-size: 1.125em;
+    line-height: 1.4em;
+
+}
+
+.cafe-botao {
+   
+    border: 3px solid;
+   
+    text-decoration: none; /* tirando o estilo que veem padrão no botão */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.125em;
+    
+    color: #252525;
+    display: block;
+    width: 180px;
+    padding: 15px 0;
+    margin: 40px auto 0 auto;
+   
+}
+
+@media only screen and (min-width: 740px) and (max-width: 980px) {
+    
+}
+
+@media only screen and (max-width: 739px) {
+    .cafe-tipos {
+        margin: 0;
+    }
+
+    .cafe-tipos p {
+        margin: 20px 0;
+    }
+}
+
+/* Fim Produtos */
+
+/* Locais */
+
+.lojas {
+    margin: 60px 0;
+}
+
+
+
+.lojas-img, .lojas-info {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    margin: 0 10px;
+}
+
+.lojas-locais {
+    margin-bottom: 40px;
+}
+
+.lojas-locais h2 {
+    font-size: 2.25em;
+    margin-bottom: 20px;
+}
+
+.lojas-locais p {
+    font-size: 1.125em;
+    line-height: 1.4em;
+    
+    max-width: 320px; /* para o texto não ficar muito grande e dificultar a leitura */
+    margin-bottom: 40px;
+}
+
+.lojas-locais a {
+    font-size: 1.125em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #252525; /* definindo a cor, porquê a tag a não pega a cor padrão */
+    border: 3px solid;
+    
+    padding: 15px;
+     
+    
+}
+
+@media only screen and (min-width: 740px) and (max-width: 980px) {
+    
+   
+}
+
+@media only screen and (max-width: 739px) {
+    .lojas-img, .lojas-info {
+        margin: 0;
+    }
+
+    .lojas-img {
+        margin-top: 40px;
+    }
+
+    .lojas-locais h2 {
+        font-size: 2.25em;
+        margin: 20px 0;
+    }
+
+    .lojas-locais p {
+        margin-bottom: 60px;
+    }
+}
+
+/* Fim Locais */
+
+
+/* Newsletter */
+
+.newsletter {
+    background-color: #E7E4D8;
+    padding: 20px 0;
+}
+
+.newsletter-info {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    margin: 0 10px;
+}
+
+.newsletter-info h2 {
+    font-size: 2.25em;
+    
+}
+
+.newsletter-info p {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.newsletter form {
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    margin: 0 10px;
+    display: flex; /* definindo o form como flex para que os elementos filhos input e button sejam flex também */
+    flex-wrap: wrap; /* quando não couber o conteúdo lado a lado, será quebrado linha */
+    align-content: flex-start; /* alinhando conteúdo ao começo */
+}
+
+.newsletter form input { /* não pega as configurações de cores padrões, por ser input e também não pega a font, por isso é necessário definir isso */
+    background-color: #E7E4D8;
+    border: 3px solid;
+    font-family: Georgia, serif;
+   
+    /* width: 320px; */
+    font-size: 1.5em;
+    color: #252525;
+    
+    outline: none; /* tirando um azul que fica quando está selecionado o input */
+
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    align-self: flex-start;
+    /* alinhado ao começo do conteúdo, assim ficam em cima */
+    padding: 10px;
+}
+
+.newsletter form button {
+    /* width: 140px; */
+    color: #fff;
+    background-color: #252525;
+    
+    font-size: 1.5em;
+    font-family: Georgia, serif;
+    
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer; /* quando passar o cursor por cima dele irá ficar com o cursor clicável */
+    outline: none; /* tirando um azul que fica quando clicado o botão */
+
+    
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+    align-self: flex-start; /* alinhado ao começo do conteúdo, assim ficam em cima */
+    padding: 13px;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 980px) {
+
+}
+
+@media only screen and (max-width: 739px) {
+
+    .newsletter {
+        margin-top: 60px;
+        padding: 40px 0;
+    }
+
+    .newsletter-info, .newsletter form {
+        margin: 0;
+    }
+
+    .newsletter-info p {
+        margin-bottom: 20px;
+    }
+}
+
+/* Fim Newsletter */
+
+/* Rodapé */
+
+.rodape {
+    background-color: #D6D3C8;
+    padding: 20px 0;
+}
+
+.rodape p {
+    font-size: 1.125em;
+    line-height: 1.4em;
+    margin: 0 10px;
+    flex: 1; /* definido capacidade de aumentar como 1, encolher como 1e valor base como 0flex-grow: 1; flex-shrink: 1;  flex-basis: 0*/
+}
+
+.rodape-img {
+    margin: 0 10px;
+}
+
+@media only screen and (max-width: 739px) {
+
+    .rodape {
+        padding: 40px 0;
+    }
+
+    .rodape p {
+        margin: 0 0 20px 0;
+    }
+
+    .rodape-img {
+        margin: 0;
+    }
+}
+
+
+/* Fim Rodapé */
